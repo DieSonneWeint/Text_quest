@@ -1,0 +1,46 @@
+﻿<Window x:Class="Text_quest.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Text_quest"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush>
+            <ImageBrush.ImageSource>
+                <BitmapImage UriSource="C:\Users\drago\source\repos\Text_quest\Image1.png"/>
+            </ImageBrush.ImageSource>
+        </ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="0,0,0,-4" Grid.ColumnSpan="2">
+            <Button Name="B_SWORD" Content="Заточить клинок" HorizontalAlignment="Left" Margin="98,158,0,0" VerticalAlignment="Top" Height="61" Width="115" Click="Button_Click_2" Visibility="Collapsed"/>
+            <Button Name="B_ARMOR"  Content="Найти доспех" HorizontalAlignment="Left" Margin="353,158,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.845,-5.078" Height="61" Width="115" Click="Button_Click_3" Visibility="Collapsed"/>
+            <Button Name="B_ALCH" Content="Приготовить зелье" HorizontalAlignment="Left" Margin="598,153,0,0" VerticalAlignment="Top" Height="61" Width="115" RenderTransformOrigin="0.994,0.394" Click="Button_Click_4" Visibility="Collapsed"/>
+            <Button Name="B_SwordEvent_T" Content="Точить" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Height="71" Width="146" Click="Button_Click_5" Visibility="Collapsed"/>
+            <Button Name="B_SwordEvent_end" Content="Завершить" HorizontalAlignment="Center" Margin="0,201,0,0" VerticalAlignment="Top" Height="71" Width="146" Click="Button_Click_6" Visibility="Collapsed"/>
+            <Button Name="B_Romsh" Content="Ромашка" HorizontalAlignment="Left" Margin="156,161,0,0" VerticalAlignment="Top" Height="58" Width="130" RenderTransformOrigin="0.312,2.827" Click="Button_Click_7" Visibility="Collapsed"/>
+            <Button Name="B_FlowerOfMane" Content="Цветок маны" HorizontalAlignment="Left" Margin="348,161,0,0" VerticalAlignment="Top" Height="58" Width="130" Click="Button_Click_8" Visibility="Collapsed"/>
+            <Button Name="B_FlowerOFLife" Content="Цветок жизни" HorizontalAlignment="Left" Margin="551,161,0,0" VerticalAlignment="Top" Height="58" Width="124" Click="Button_Click_9" Visibility="Collapsed"/>
+
+        </Grid>
+        <Button Name="B_Next"  HorizontalAlignment="Left" Margin="653,346,0,0" VerticalAlignment="Top" Height="52" Width="113" Click="Button_Click_1" RenderTransformOrigin="0.519,0.469" Content="Далее"/>
+        <Button Name="B_Back"  HorizontalAlignment="Left" Margin="48,347,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.705,-0.067" Width="112" Height="50" Click="Button_Click" Content="Назад">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.409"/>
+                    <TranslateTransform X="0.205" Y="-0.1"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBox Name="TB" HorizontalAlignment="Left" Margin="212,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="405" Height="52"/>
+    </Grid>
+</Window>
