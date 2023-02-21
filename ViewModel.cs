@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Unicode;
 using System.Drawing;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -12,9 +11,7 @@ using System.Windows.Navigation;
 using System.Windows;
 using System.Windows.Media.Media3D;
 using System.Net.Http.Headers;
-using System.Text.Json;
 using System.Security.Policy;
-using System.Reflection.Metadata;
 
 namespace Text_quest
 {
@@ -22,7 +19,7 @@ namespace Text_quest
     {
        
          Model model = new Model();
-        
+         XmlSerializer xmlSerializable = new XmlSerializer(typeof(Model));
         private string LoadImage(int index) // Загрузка изображения
         {
             if (index == 1) return "Images/Sword_Event.png";
@@ -131,14 +128,15 @@ namespace Text_quest
         }
         public void SaveTemp()
         {     
-            string json = JsonSerializer.Serialize<Model>(model); ;
-            File.WriteAllText("Temp", json);
+            FileStream fs = new FileStream("temp.xml", FileMode.OpenOrCreate);
+            xmlSerializable.Serialize(fs,model); ;
         }
         public ImageBrush LoadTemp()
         {
             if (File.Exists("Temp"))
             {
-                model = JsonSerializer.Deserialize<Model>(File.ReadAllText("Temp"));
+                FileStream fs = new FileStream("temp.xml", FileMode.OpenOrCreate);              
+                model = xmlSerializable.Deserialize(fs) as Model;
                 ImageBrush image = new ImageBrush(new BitmapImage(new Uri(LoadImage(model.NumberE), UriKind.Relative)));
                 model.LoadText(model.path);
                 return image;
