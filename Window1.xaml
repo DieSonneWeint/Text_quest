@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Window.Background>
-        <ImageBrush>
-            <ImageBrush.ImageSource>
-                <BitmapImage UriSource="C:\Users\drago\source\repos\Text_quest\Image1.png"/>
-            </ImageBrush.ImageSource>
+        <ImageBrush>            
         </ImageBrush>
     </Window.Background>
     <Grid>
