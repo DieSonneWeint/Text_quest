@@ -128,17 +128,19 @@ namespace Text_quest
         }
         public void SaveTemp()
         {     
-            FileStream fs = new FileStream("temp.xml", FileMode.OpenOrCreate);
-            xmlSerializable.Serialize(fs,model); ;
+            FileWriter fs = new FileWriter("temp.xml");
+            xmlSerializable.Serialize(fs,model);
+            fs.Close();
         }
         public ImageBrush LoadTemp()
         {
-            if (File.Exists("Temp"))
+            if (File.Exists("temp.xml"))
             {
                 FileStream fs = new FileStream("temp.xml", FileMode.OpenOrCreate);              
                 model = xmlSerializable.Deserialize(fs) as Model;
                 ImageBrush image = new ImageBrush(new BitmapImage(new Uri(LoadImage(model.NumberE), UriKind.Relative)));
                 model.LoadText(model.path);
+                fs.Close();
                 return image;
             }
             else
