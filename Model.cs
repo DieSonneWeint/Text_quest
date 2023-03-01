@@ -5,7 +5,7 @@ using System.Text;
 namespace Text_quest
 {
     [Serializable]
-    internal class Model
+    public class Model
     {
         public int NumberE { get; set; }
         string[] str { get; set; }
