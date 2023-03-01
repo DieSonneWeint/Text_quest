@@ -12,7 +12,7 @@ using System.Windows;
 using System.Windows.Media.Media3D;
 using System.Net.Http.Headers;
 using System.Security.Policy;
-
+using System.Xml.Serialization;
 namespace Text_quest
 {
     public class ViewModel
@@ -128,7 +128,7 @@ namespace Text_quest
         }
         public void SaveTemp()
         {     
-            FileWriter fs = new FileWriter("temp.xml");
+            StreamWriter fs = new StreamWriter("temp.xml");
             xmlSerializable.Serialize(fs,model);
             fs.Close();
         }
